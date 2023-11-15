@@ -37,30 +37,33 @@ const Page = () => {
 	};
 
 	return (
-		<div style={{ display: 'flex', flexDirection: 'column', maxWidth: 300 }}>
+		<>
 			<h1>
 				Simple request response communication between server and client using
 				sockets.io
 			</h1>
-			<p>
+			<p style={{ marginBottom: 20 }}>
 				Every time client makes a request, it will be showed in the list below
 				as soon as the acknowledgement is received
 			</p>
-			<textarea
-				name='message'
-				value={message}
-				onChange={e => setMessage(e.target.value)}
-				placeholder='Enter a message'
-			></textarea>
-			<button onClick={onSubmitHandler}>Send Message</button>
-			<li>
-				{messages.map((message, index) => (
-					<div key={index}>
-						{'message sent'}: {message.message}
-					</div>
-				))}
-			</li>
-		</div>
+			<div style={{ display: 'flex', flexDirection: 'column', maxWidth: 300 }}>
+				<textarea
+					name='message'
+					value={message}
+					onChange={e => setMessage(e.target.value)}
+					placeholder='Enter a message'
+					style={{ marginBottom: 20 }}
+				></textarea>
+				<button onClick={onSubmitHandler}>Send Message</button>
+				<li>
+					{messages.map((message, index) => (
+						<div key={index}>
+							{'message sent'}: {message.message}
+						</div>
+					))}
+				</li>
+			</div>
+		</>
 	);
 };
 
